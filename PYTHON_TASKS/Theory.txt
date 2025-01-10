@@ -1,0 +1,19 @@
+Py is a high level object oriented programming language. It is interactive and interpreted. -> HLL TO LLL line by line
+Py is a multi paradigm programming language,supporting POP and OOP model.
+Py has 2 different modes -> interactive and scripting.
+Py Syntax. -> keywords, identifiers,line&idendation,multiline statements,quotations,comments.
+A uniformly idendation bloc start from :
+Py identifiers are used to identify function,variable,class,module. Class name starts w uppercase letters. Py is case sensitive.
+Identifier with a single leading  underscore->private indentifier _abc
+Identifier with 2leading underscore-> super private identifier __abc
+Identifier also ending w 2 trailing underscores-> language defined special name also known as magic methods->__abc__ (used to overload the plus operator)
+'', "", ''' ''' ->all are the sam string literals
+Py allows the use of continuation character (\) to denote that line should continue.
+Statements contained within [],{},() donot need the use of continuation character.
+Data types -> Numbers, Strings, List [], Tuple (), Dictionary{}
+Py Numbers(immutable data types) -> int(signed nos.), float(floating point real values), complex number(x+iy). All integers are represented by long int. 
+There isnt any separate data type for long.
+Mathematical Functions-> abs(+ve value of x),ceil,cmp(x,y) if(x<y)reutrn -1,if(x==y)return 0,if(x>y)return 1, exp(x) is exponential of x,fabs(x) is absolute value of x
+floor, log,max,min,mod,pow,round,sqrt
+The 2 mathematical constants->pi,e
+Types of Operators->Arithmetic,Bitwise, Logical,Comparison,Assignment,Membership,Identity

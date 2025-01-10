@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Transaction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f9fc;
+        color: #333;
+      }
+      header {
+        background-color: #4caf50;
+        color: white;
+        padding: 1rem 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      nav {
+        background-color: #333;
+        padding: 0.5rem 0;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        display: inline-block;
+        font-size: 1.1rem;
+        transition: background-color 0.3s ease;
+      }
+      nav a:hover {
+        background-color: #575757;
+      }
+      main {
+        text-align: center;
+        padding: 2rem;
+      }
+      form {
+        width: 50%;
+        margin: auto;
+        background: #fff;
+        padding: 2rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      form label {
+        display: block;
+        margin: 1rem 0 0.5rem;
+      }
+      form input,
+      form select,
+      form textarea,
+      form button {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+      form button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      form button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Personal Finance Manager</h1>
+    </header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/transactions">View Transactions</a>
+      <a href="/add_transaction">Add Transaction</a>
+    </nav>
+    <main>
+      <h2>Add a New Transaction</h2>
+      <form id="transaction-form">
+        <label for="type">Type:</label>
+        <select id="type" name="type" required>
+          <option value="Income">Income</option>
+          <option value="Expense">Expense</option>
+        </select>
+        <label for="category">Category:</label>
+        <input type="text" id="category" name="category" required />
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" required />
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        <button type="submit">Add Transaction</button>
+      </form>
+    </main>
+    <script>
+      document
+        .getElementById("transaction-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = {
+            type: document.getElementById("type").value,
+            category: document.getElementById("category").value,
+            amount: document.getElementById("amount").value,
+            description: document.getElementById("description").value,
+          };
+          fetch("/transactions/api", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              alert(data.message);
+              window.location.href = "/transactions";
+            });
+        });
+    </script>
+  </body>
+</html>
